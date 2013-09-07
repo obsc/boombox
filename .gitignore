@@ -7,5 +7,5 @@
 # Java & Eclipse
 *.class
 *.project
-bin/
-gen/
+boombox/bin/
+boombox/gen/
