@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
-from boombox.views import hello
+from boombox.views import webpage, otherweb
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^hello/$', hello)
+    url(r'^hello/$', webpage),
+    url(r'^hello/(\d{1,3})\d*/$', otherweb),
     # Examples:
     # url(r'^$', 'boombox.views.home', name='home'),
     # url(r'^boombox/', include('boombox.foo.urls')),
