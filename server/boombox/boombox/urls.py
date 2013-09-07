@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
+from boombox.views import hello
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^hello/$', hello)
     # Examples:
     # url(r'^$', 'boombox.views.home', name='home'),
     # url(r'^boombox/', include('boombox.foo.urls')),
