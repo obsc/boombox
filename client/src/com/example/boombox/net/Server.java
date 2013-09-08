@@ -67,6 +67,7 @@ public class Server {
 				return sb.toString();
 			} catch (IOException ex) {
 				Log.e(TAG, "IOException from get(): " + ex.getMessage());
+				logStackTrace(ex);
 				return null;
 			} finally {
 				if (conn != null)
@@ -74,6 +75,19 @@ public class Server {
 			}
 		}
 
+
+		/**
+		 * Logs the stack trace of an error
+		 */
+		private void logStackTrace(Exception e) {
+			StringBuilder sb = new StringBuilder();
+			for (StackTraceElement s : e.getStackTrace()) {
+				sb.append(s.toString());
+				sb.append('\n');
+			}
+			Log.e(TAG, sb.toString());
+		}
+		
 	}
 
 }
