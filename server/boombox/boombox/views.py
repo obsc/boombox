@@ -1,22 +1,22 @@
+from django.template.loader import get_template
+from django.template import Context
 from django.http import HttpResponse
 import datetime
 
 def stuff(num):
     now = datetime.datetime.now();
-    html = "<p>Hello World!</p>";
-    html += "<p>It is now %s.</p>" % now;
-
+    s = [];
     while (num > 0):
-        html += "<p>sugoi!</p>";
+        s.append("sugoi");
         num -= 1;
+
+    t = get_template('temp.html');
+    c = Context({'message': 'Hello World!', 'cur_time': now, 'sugoilist': s});
+    html = t.render(c);    
     return html;
 
 def webpage(request):
-    html = "<html><body>";
-
-    html += stuff(0);
-
-    html += "</body></html>";
+    html = stuff(0);
     return HttpResponse(html);
 
 def otherweb(request, num):
@@ -25,9 +25,5 @@ def otherweb(request, num):
     except ValueError:
         raise Http404()
 
-    html = "<html><body>";
-
-    html += stuff(num);
-
-    html += "</body></html>";
+    html = stuff(num);
     return HttpResponse(html);

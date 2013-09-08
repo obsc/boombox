@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>SUGOI WEBPAGE!!!</title>
+</head>
+
+<body>
+    <h1> {{ message }} </h1>
+    <p> It is now {{ cur_time }}. </p>
+    {% for sugoi in sugoilist %}
+        <p> {{ sugoi }} </p>
+    {% empty %}
+        <p> You are lacking in the sugoi! </p>
+    {% endfor %}
+</body>
+
+</html>

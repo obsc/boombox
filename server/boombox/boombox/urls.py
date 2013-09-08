@@ -6,8 +6,8 @@ from boombox.views import webpage, otherweb
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^hello/$', webpage),
-    url(r'^hello/(\d{1,3})\d*/$', otherweb),
+    url(r'^$', webpage),
+    url(r'(\d{1,3})\d*/$', otherweb),
     # Examples:
     # url(r'^$', 'boombox.views.home', name='home'),
     # url(r'^boombox/', include('boombox.foo.urls')),
